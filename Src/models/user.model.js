@@ -66,7 +66,7 @@ userSchema.pre("save", async function (next) {                     // we use nex
                                                                   // .pre is used to do some things like "save:to do an operation before saving"
     if(!this.isModifies("password")) return next();
 
-    this.password = bcrypt.hash(this.password, 10)
+    this.password = await bcrypt.hash(this.password, 10)
     next()   
 })
 
